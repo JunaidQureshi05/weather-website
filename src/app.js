@@ -1,9 +1,12 @@
 const path = require('path');
 const express = require('express');
 const hbs = require('hbs');
-const app = express();
+
 const geocode = require('./utils/geocode');
 const forecast = require('./utils/forecast');
+
+const app = express();
+const PORT = peocess.env.PORT || 3000;
 // Define paths for express config
 const publicDirectoryPath = path.join(__dirname, '../public');
 const templateDirectoryPath = path.join(__dirname, '../templates/views');
@@ -77,8 +80,6 @@ app.get('*', (req, res) => {
     errorMessage: 'Page Not found',
   });
 });
-
-const PORT = 3000;
 app.listen(PORT, () => {
   console.log('server started' + ' ' + PORT);
 });
